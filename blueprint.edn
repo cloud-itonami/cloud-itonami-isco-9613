@@ -1,0 +1,11 @@
+[{:itonami.blueprint/social-impact [:worker-safety :public-cleanliness :traffic-safety]
+  :itonami.blueprint/domain :street-cleaning/sweeping-route-scheduling-logistics-coordination
+  :itonami.blueprint/required-technologies [:robotics :identity :audit-ledger]
+  :itonami.blueprint/isco-08 "9613"
+  :itonami.blueprint/name "Sweeping and Site-Cleaning Route Scheduling and Logistics Coordination Practice"
+  :itonami.blueprint/governor :street-cleaning-governor
+  :itonami.blueprint/robotics true
+  :db/id -1
+  :itonami.blueprint/status :public-oss
+  :itonami.blueprint/id "cloud-itonami-isco-9613"
+  :itonami.blueprint/license "AGPL-3.0-or-later"}]
