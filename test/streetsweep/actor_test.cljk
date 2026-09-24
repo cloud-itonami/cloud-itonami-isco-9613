@@ -1,5 +1,5 @@
 (ns streetsweep.actor-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [streetsweep.actor :as actor]
             [streetsweep.store :as store]))
 
