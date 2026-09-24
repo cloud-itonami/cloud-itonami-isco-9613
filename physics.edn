@@ -1,0 +1,33 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:physics` runs it.
+;;
+;; README "Robotics premise": a route scheduling/logistics coordination robot
+;; performs crew scheduling, cleaning logging and cleaning-supplies/equipment
+;; procurement coordination for a street/site-cleaning crew (ISCO 9613). It
+;; never sweeps the route itself. The cleaning equipment's physical work it
+;; schedules: a small sweeper robot climbing a street grade with a filling
+;; debris hopper, and its dust-suppression spray bar fed by the on-board pump.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isco-9613"
+ :cases
+ [{:id :sweeper-up-street-grade
+   :kind :transport
+   :procedure "sweeper robot (150 kg) with 60 kg of debris in the hopper climbs a 100 m street section; grade varied"
+   :params {:mass-kg 150.0 :payload-kg 60.0 :distance-m 100.0 :v-max-mps 1.0 :a-max-mps2 0.4
+            :brake-decel-mps2 0.8 :drive-force-n 450.0 :crr 0.02
+            :cog-height-m 0.45 :support-half-length-m 0.40 :max-time-s 1800.0}
+   :sweep {:param :slope-deg :values [0.0 3.0 6.0 9.0 12.0]}
+   :quantity :cycle-time-s
+   :limit {:max 130.0 :basis "estimate: sweeping pace needed to finish the assigned route within the shift"}
+   :boundary {:lo 0.0 :hi 20.0}}
+  {:id :dust-spray-bar
+   :kind :pipe-flow
+   :procedure "on-board pump feeds the dust-suppression spray bar through 6 m of 10 mm hose; spray flow varied"
+   :params {:diameter-m 0.010 :length-m 6.0 :roughness-m 1.5e-6 :pump-efficiency 0.40 :elevation-m 0.5}
+   :sweep {:param :q-m3s :values [0.0001 0.0002 0.0003 0.0004 0.0005]}
+   :quantity :head-m
+   :limit {:max 20.0 :basis "estimate: head of a 12 V diaphragm spray pump (about 2 bar) before the nozzles"}
+   :boundary {:lo 0.00005 :hi 0.0008}}]}
