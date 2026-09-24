@@ -1,5 +1,5 @@
 (ns streetsweep.governor-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [streetsweep.store :as store]
             [streetsweep.advisor :as advisor]
             [streetsweep.governor :as governor]))
