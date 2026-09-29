@@ -1,7 +1,7 @@
 (ns streetsweep.store
   "SSoT for the ISCO-08 9613 sweeping-and-site-cleaning-route
   scheduling/logistics coordination actor (itonami actor pattern,
-  ADR-2607121000 / CLAUDE.md Actors section; README's 'Robotics
+  ADR-2607121000 / AGENTS.md Actors section; README's 'Robotics
   premise' — a route scheduling/logistics coordination robot performs
   crew scheduling, cleaning-log/progress-record logging and
   cleaning-supplies/equipment procurement coordination for a
