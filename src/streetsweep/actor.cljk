@@ -1,7 +1,7 @@
 (ns streetsweep.actor
   "StreetCleaningActor — the ISCO-08 9613 sweeping-and-site-cleaning
   route scheduling/logistics coordination actor as a
-  `langgraph.graph/state-graph` (ADR-2607121000 / CLAUDE.md Actors
+  `langgraph.graph/state-graph` (ADR-2607121000 / AGENTS.md Actors
   section). One graph run = one route-coordination operation request
   (intake -> advise -> govern -> decide -> commit/hold, with a
   human-approval interrupt for escalated proposals). No infinite
